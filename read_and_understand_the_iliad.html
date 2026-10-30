@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Read & Understand | The Iliad</title>
+<style>
+:root{--navy:#17324d;--blue:#2878b8;--sky:#eaf4fb;--gold:#f2c45c;--ink:#243447;--muted:#627386;--paper:#fff;--line:#dce6ef;--green:#237a57}
+*{box-sizing:border-box}body{margin:0;background:#f4f7fb;color:var(--ink);font:16px/1.6 Arial,Helvetica,sans-serif}
+header{background:linear-gradient(125deg,#17324d,#2878b8);color:white;padding:34px 20px 28px}
+.wrap{max-width:1000px;margin:auto;padding:0 18px}
+.kicker{text-transform:uppercase;letter-spacing:2px;font-size:12px;font-weight:bold;color:#cde8ff}
+h1{font-size:clamp(30px,5vw,48px);line-height:1.1;margin:8px 0}
+header p{max-width:700px;color:#e7f3ff;margin:10px 0 0}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.pill{background:#ffffff20;border:1px solid #ffffff50;padding:5px 11px;border-radius:30px;font-size:13px}
+main{max-width:1000px;margin:24px auto;padding:0 18px 50px}
+.progressbox,.panel{background:white;border:1px solid var(--line);border-radius:16px;padding:20px;margin-bottom:18px;box-shadow:0 5px 18px #1d38500a}
+.progressrow{display:flex;justify-content:space-between;gap:10px;font-weight:bold;font-size:14px}
+.track{height:10px;background:#e7edf3;border-radius:20px;overflow:hidden;margin-top:10px}.fill{height:100%;width:0;background:var(--blue);transition:width .25s}
+h2{color:var(--navy);font-size:23px;margin:0 0 8px}h3{color:var(--navy);font-size:18px;margin:16px 0 6px}
+.small{color:var(--muted);font-size:14px}.objective{background:var(--sky);border-left:4px solid var(--blue);padding:12px 15px;border-radius:8px;margin-top:12px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin:16px 0}.step{background:#f0f5fa;border-radius:10px;padding:10px;text-align:center;font-size:13px;font-weight:bold;color:var(--navy)}
+.step span{display:block;color:var(--blue);font-size:20px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+button{font:inherit;cursor:pointer;border:0;border-radius:9px;padding:10px 14px;background:var(--blue);color:white;font-weight:bold}
+button.secondary{background:#eaf1f7;color:var(--navy)}button:focus,input:focus,textarea:focus{outline:3px solid #f2c45c;outline-offset:2px}
+.tabbtn.active{background:var(--navy);color:white}
+.reading{background:#fbfdff;border:1px solid var(--line);border-radius:12px;padding:16px;margin:12px 0}
+.reading p{margin:8px 0}.tag{font-size:12px;color:var(--blue);font-weight:bold;text-transform:uppercase;letter-spacing:1px}
+.question{border-top:1px solid var(--line);padding:14px 0}.question:first-child{border-top:0}
+label{display:block;margin:7px 0;cursor:pointer}input[type=radio]{margin-right:8px}
+.feedback{display:none;margin-top:8px;padding:9px 12px;border-radius:8px;background:#edf7f1;color:#18583c;font-size:14px}
+.feedback.show{display:block}.wrong{background:#fff4e8;color:#8a4b12}
+textarea,input[type=text]{width:100%;padding:11px;border:1px solid #cbd8e4;border-radius:9px;font:inherit;background:white}
+textarea{min-height:95px;resize:vertical}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.vocab{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.vocab div{background:#f5f8fb;border:1px solid var(--line);border-radius:10px;padding:12px}
+details{border:1px solid var(--line);border-radius:10px;padding:12px;margin:9px 0;background:#fff}
+summary{cursor:pointer;font-weight:bold;color:var(--navy)}
+.notice{background:#fff8e8;border:1px solid #f4dfaa;padding:12px;border-radius:10px;color:#6f5216}
+.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}
+footer{text-align:center;color:var(--muted);font-size:13px;padding:24px}
+@media(max-width:650px){.steps{grid-template-columns:repeat(2,1fr)}.grid2,.vocab{grid-template-columns:1fr}.panel{padding:16px}}
+@media print{body{background:white}.progressbox,.actions,button{display:none!important}.panel{box-shadow:none;break-inside:avoid}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<div class="kicker">Read with purpose • Think critically • Understand deeply</div>
+<h1>READ &amp; UNDERSTAND</h1>
+<div style="font-size:20px;font-weight:bold;color:#f8d982">The Iliad by Homer</div>
+<p>A guided reading activity that helps you move beyond pronouncing words. Read each part, pause to think, and use details from the text to explain what it means.</p>
+<div class="pills"><span class="pill">Grade 10 English</span><span class="pill">Guided Reading</span><span class="pill">Comprehension Practice</span></div>
+</div></header>
+<main>
+<section class="progressbox">
+<div class="progressrow"><span>Your reading journey</span><span id="progressText">0 of 5 sections completed</span></div>
+<div class="track"><div class="fill" id="progressFill"></div></div>
+<div class="small" style="margin-top:8px">Complete each section in order. Your progress is recorded only in this browser during this session.</div>
+</section>
+
+<section class="panel">
+<h2>Welcome, Reader!</h2>
+<p>In this activity, you will read a short retelling of <em>The Iliad</em> and demonstrate what you understand. You do not need to read quickly. Focus on the meaning of each paragraph.</p>
+<div class="objective"><strong>Learning target:</strong> I can identify important details, explain the main idea, make inferences, and summarize a literary text using evidence.</div>
+<div class="steps">
+<div class="step"><span>1</span>Prepare</div><div class="step"><span>2</span>Read &amp; Pause</div><div class="step"><span>3</span>Check Meaning</div><div class="step"><span>4</span>Reflect</div>
+</div>
+<div class="notice"><strong>Remember:</strong> Pronouncing a word correctly is only one part of reading. After each paragraph, ask yourself: “What is happening? Why is it important? What does this tell me?”</div>
+</section>
+
+<section class="panel" id="prepare">
+<h2>Section 1. Before Reading: Get Ready</h2>
+<p>Think about the words below. Read each meaning and predict what kind of conflict might happen in a story about warriors, honor, and war.</p>
+<div class="vocab">
+<div><strong>Honor</strong><br><span class="small">Respect, recognition, or a sense of personal worth.</span></div>
+<div><strong>Revenge</strong><br><span class="small">An action taken to hurt someone in return for a wrong.</span></div>
+<div><strong>Grief</strong><br><span class="small">Deep sadness, especially after losing someone.</span></div>
+<div><strong>Reconciliation</strong><br><span class="small">The restoration of a relationship after disagreement or conflict.</span></div>
+</div>
+<h3>Make a prediction</h3>
+<label for="prediction">Based on these words, what problems or lessons do you expect to find in the story?</label>
+<textarea id="prediction" placeholder="I predict that..."></textarea>
+<button onclick="complete('prepare')">I completed this section</button>
+</section>
+
+<section class="panel" id="read">
+<h2>Section 2. During Reading: Read, Pause, and Think</h2>
+<p class="small">Read one part at a time. You may read silently or aloud, but pause after each part to check whether you understand what happened.</p>
+<div class="reading">
+<div class="tag">Part 1 • Anger and honor</div>
+<p><em>The Iliad</em> by Homer is an epic poem set during the final year of the Trojan War. The story focuses on Achilles and the consequences of his anger. A conflict begins when Agamemnon takes Briseis, who had been given to Achilles as a prize of war. Achilles feels insulted and refuses to fight for the Greeks. Without their strongest warrior, the Greek army becomes weaker, allowing Hector and the Trojans to gain an advantage.</p>
+</div>
+<details><summary>Pause and think: Part 1</summary>
+<p><strong>What caused Achilles to stop fighting?</strong> Agamemnon took Briseis, which Achilles viewed as an insult to his honor.</p>
+<p><strong>Why did Achilles' decision matter to the Greek army?</strong> His absence weakened the army and gave the Trojans an advantage.</p>
+</details>
+<div class="reading">
+<div class="tag">Part 2 • Patroclus enters the battle</div>
+<p>As the Greeks begin to lose, Achilles' close friend Patroclus asks to wear Achilles' armor and lead the troops. Achilles agrees but warns him not to pursue the Trojans too far. Patroclus ignores the warning and continues toward the city walls. He faces Hector, who kills him with the help of Apollo. Patroclus' death becomes a major turning point in the story.</p>
+</div>
+<details><summary>Pause and think: Part 2</summary>
+<p><strong>What warning did Achilles give Patroclus?</strong> He warned him not to pursue the Trojans too far.</p>
+<p><strong>Why is Patroclus' death a turning point?</strong> It changes Achilles' emotions and motivates him to return to battle.</p>
+</details>
+<div class="reading">
+<div class="tag">Part 3 • Revenge and its consequences</div>
+<p>When Achilles learns of Patroclus' death, he feels grief, guilt, and rage. He sets aside his quarrel with Agamemnon and returns to battle. With new armor made by Hephaestus, Achilles becomes nearly unstoppable. He eventually kills Hector in a duel and dishonors Hector's body by dragging it behind his chariot. This action shows how deeply anger has consumed Achilles.</p>
+</div>
+<details><summary>Pause and think: Part 3</summary>
+<p><strong>What motivates Achilles to return to battle?</strong> His grief and desire to avenge Patroclus.</p>
+<p><strong>What does Achilles' treatment of Hector's body reveal?</strong> His anger has overwhelmed his judgment and sense of respect.</p>
+</details>
+<div class="reading">
+<div class="tag">Part 4 • Compassion and reconciliation</div>
+<p>Priam, the elderly king of Troy and Hector's father, enters the Greek camp and asks Achilles to return his son's body for burial. Priam reminds Achilles of his own father and the pain of losing a loved one. Moved by Priam's sorrow and courage, Achilles feels compassion and agrees. The story ends with Hector's funeral and emphasizes the shared humanity of enemies.</p>
+</div>
+<details><summary>Pause and think: Part 4</summary>
+<p><strong>What changes Achilles' attitude toward Priam?</strong> Priam's grief reminds Achilles of his own father and helps him feel compassion.</p>
+<p><strong>What does the ending emphasize?</strong> Even enemies share human feelings and deserve empathy and respect.</p>
+</details>
+<button onclick="complete('read')">I finished reading and pausing</button>
+</section>
+
+<section class="panel" id="check">
+<h2>Section 3. Check Your Understanding</h2>
+<p>Choose the best answer. Read each question carefully and think about the meaning of the story.</p>
+<div class="question" data-answer="b">
+<strong>1. What is the main reason Achilles refuses to fight for the Greeks?</strong>
+<label><input type="radio" name="q1" value="a"> He is afraid of Hector.</label>
+<label><input type="radio" name="q1" value="b"> He feels insulted when Agamemnon takes Briseis.</label>
+<label><input type="radio" name="q1" value="c"> He wants to become the king of Troy.</label>
+<div class="feedback">Correct answer: B. Achilles believes that Agamemnon has dishonored him.</div>
+</div>
+<div class="question" data-answer="c">
+<strong>2. Why does Patroclus' death change the direction of the story?</strong>
+<label><input type="radio" name="q2" value="a"> It ends the Trojan War immediately.</label>
+<label><input type="radio" name="q2" value="b"> It makes Agamemnon leave the Greek army.</label>
+<label><input type="radio" name="q2" value="c"> It drives Achilles to return to battle to avenge his friend.</label>
+<div class="feedback">Correct answer: C. Patroclus' death becomes the turning point that brings Achilles back to battle.</div>
+</div>
+<div class="question" data-answer="a">
+<strong>3. What can you infer about Achilles from his treatment of Hector's body?</strong>
+<label><input type="radio" name="q3" value="a"> His anger has affected his ability to show respect and self-control.</label>
+<label><input type="radio" name="q3" value="b"> He has completely forgotten Patroclus.</label>
+<label><input type="radio" name="q3" value="c"> He wants to protect Priam.</label>
+<div class="feedback">Correct answer: A. His actions show how destructive uncontrolled anger can become.</div>
+</div>
+<div class="question" data-answer="b">
+<strong>4. Why does Priam's request affect Achilles?</strong>
+<label><input type="radio" name="q4" value="a"> Priam promises him a kingdom.</label>
+<label><input type="radio" name="q4" value="b"> Priam's grief reminds Achilles of his own father and human loss.</label>
+<label><input type="radio" name="q4" value="c"> Hector returns to life.</label>
+<div class="feedback">Correct answer: B. The reminder of his father helps Achilles recognize Priam's suffering.</div>
+</div>
+<div class="question" data-answer="c">
+<strong>5. Which statement best expresses a central message of the story?</strong>
+<label><input type="radio" name="q5" value="a"> Victory is more important than compassion.</label>
+<label><input type="radio" name="q5" value="b"> Anger always solves personal conflicts.</label>
+<label><input type="radio" name="q5" value="c"> Even people on opposing sides share human feelings and deserve empathy.</label>
+<div class="feedback">Correct answer: C. The ending highlights shared humanity, empathy, and respect.</div>
+</div>
+<button onclick="checkQuiz()">Check my answers</button>
+<div id="quizResult" class="objective" style="display:none" aria-live="polite"></div>
+</section>
+
+<section class="panel" id="think">
+<h2>Section 4. Think Deeper: Explain Your Ideas</h2>
+<p>Answer in complete sentences. Use details from the reading to support your explanation. There is no need to copy the passage word for word.</p>
+<div class="question"><strong>1. How does the quarrel between Achilles and Agamemnon reflect values of pride and honor in Greek culture?</strong><textarea placeholder="I think the quarrel shows..."></textarea></div>
+<div class="question"><strong>2. In what ways does Hector's confrontation with Achilles symbolize more than just a personal battle?</strong><textarea placeholder="The confrontation may symbolize..."></textarea></div>
+<div class="question"><strong>3. What values are revealed when characters confront the inevitability of death as part of nature?</strong><textarea placeholder="The characters reveal..."></textarea></div>
+<div class="question"><strong>4. How does the natural setting of war battlefields, weather, and physical hardship challenge the warriors' endurance?</strong><textarea placeholder="The setting challenges the warriors by..."></textarea></div>
+<div class="question"><strong>5. Can a character's defiance of societal norms in The Iliad be interpreted as a critique of cultural values?</strong><textarea placeholder="Yes/No, because..."></textarea></div>
+<div class="question"><strong>6. What does Achilles' eventual reconciliation with Priam suggest about the resolution of internal conflict?</strong><textarea placeholder="It suggests that..."></textarea></div>
+<div class="question"><strong>7. If you were to integrate all four types of conflict, what overarching message about human values does The Iliad convey to modern readers?</strong><textarea placeholder="The overall message is..."></textarea></div>
+<button onclick="complete('think')">I completed my written responses</button>
+</section>
+
+<section class="panel" id="reflect">
+<h2>Section 5. Reflect on Your Reading</h2>
+<p>Think about how you read and understood the text. Answer honestly.</p>
+<div class="question"><strong>1. What helped you understand the story better: vocabulary preview, pausing after paragraphs, comprehension questions, or written reflection? Explain.</strong><textarea placeholder="The strategy that helped me most was..."></textarea></div>
+<div class="question"><strong>2. Was there a part of the story you could pronounce but initially found difficult to understand? What helped you understand it?</strong><textarea placeholder="One part I found difficult was..."></textarea></div>
+<div class="question"><strong>3. What will you do next time to make sure you understand what you read?</strong><textarea placeholder="Next time, I will..."></textarea></div>
+<button onclick="complete('reflect')">Finish activity</button>
+<div id="finishMessage" class="objective" style="display:none">Well done! You have completed the guided reading activity. Review your answers before submitting them to your teacher.</div>
+<div class="actions"><button class="secondary" onclick="window.print()">Print my activity</button><button class="secondary" onclick="window.location.reload()">Reset activity</button></div>
+</section>
+<footer>READ &amp; UNDERSTAND • Guided Reading Activity • Based on the uploaded classroom text, “The Iliad” by Homer.</footer>
+</main>
+<script>
+const completed=new Set();
+function complete(id){completed.add(id);document.getElementById('progressText').textContent=completed.size+' of 5 sections completed';document.getElementById('progressFill').style.width=(completed.size/5*100)+'%';if(id==='reflect')document.getElementById('finishMessage').style.display='block';}
+function checkQuiz(){
+ let score=0;
+ document.querySelectorAll('.question[data-answer]').forEach((q,i)=>{
+  const selected=q.querySelector('input:checked');const fb=q.querySelector('.feedback');
+  fb.classList.add('show');
+  if(selected&&selected.value===q.dataset.answer){score++;fb.classList.remove('wrong');fb.textContent='Correct! '+fb.textContent.replace(/^Correct answer: [ABC]\. /,'');}
+  else{fb.classList.add('wrong');}
+ });
+ const result=document.getElementById('quizResult');result.style.display='block';result.innerHTML='<strong>Your score: '+score+'/5</strong><br>'+ (score===5?'Excellent work! You understood the key events and message.':score>=3?'Good effort. Review the feedback and reread the parts connected to the questions.':'Keep practicing. Return to the reading sections, pause after each part, and look for evidence in the text.');
+ if(score>=0)complete('check');
+}
+</script>
+</body></html>
